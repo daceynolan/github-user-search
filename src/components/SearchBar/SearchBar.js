@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Button from "components/Button";
 import Input from "components/Input";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const onInputChange = (event) => {
@@ -12,6 +12,7 @@ const SearchBar = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    props.onFormSubmit(searchTerm);
   };
 
   return (

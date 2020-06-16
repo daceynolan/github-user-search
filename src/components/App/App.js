@@ -1,36 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import SearchBar from "components/SearchBar";
-import ghapi from "APIS/GitHub";
+import github from "APIS/GitHub";
 
-const fetchUsers = ({ user }) => {
-  return ghapi.get(`/search/users?q=${user}`);
-};
-
-function App() {
-  //pass user information to App
+const App = () => {
   const [users, setUsers] = useState([]);
 
-  //create loader
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (!user) return;
-    setIsLoading(true);
-    fetchUsers(user)
-      .then((response) => {
-        setUsers(response.data.data);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+  const fetchUsers = async (term) => {
+    const response = await github.get(`/search/users?q=${term}`);
+    setUsers(response.data.items);
+  };
 
   return (
-    <div className="App">
-      <SearchBar />
-    </div>
+    <>
+      <SearchBar onFormSubmit={fetchUsers} />
+
+      <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {users.map((user) => {
+          return <div key={user.id}>{user.login}</div>;
+        })}
+      </div>
+    </>
   );
-}
+};
 
 export default App;
+
+//   const [isLoading, setIsLoading] = useState(false);
+
+//   useEffect(() => {
+//     setIsLoading(true);
+//     fetchUsers(users)
+//       .then((response) => {
+//         setUsers(response.data.data);
+//       })
+//       .finally(() => {
+//         setIsLoading(false);
+//       });
+//   }, []);
