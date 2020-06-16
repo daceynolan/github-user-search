@@ -12,10 +12,10 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-bar">
+    <div className="flex justify-center">
       <form onSubmit={(e) => onFormSubmit(e)}>
         <input
-          className="search-bar__input"
+          className="border-2 border-gray-400 hover:border-teal-400 focus:border-teal-400 focus:outline-none px-3 py-2 font-medium rounded-lg"
           placeholder="Search"
           type="text"
           value={searchTerm}
