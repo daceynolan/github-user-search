@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
+import CenteringLayout from "components/CenteringLayout";
 import SearchBar from "components/SearchBar";
+import UserCard from "components/UserCard";
 import github from "APIS/GitHub";
 
 const App = () => {
@@ -14,12 +16,13 @@ const App = () => {
   return (
     <>
       <SearchBar onFormSubmit={fetchUsers} />
-
-      <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {users.map((user) => {
-          return <div key={user.id}>{user.login}</div>;
-        })}
-      </div>
+      <CenteringLayout>
+        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {users.map((user) => {
+            return <UserCard key={user.id} user={user} />;
+          })}
+        </div>
+      </CenteringLayout>
     </>
   );
 };
