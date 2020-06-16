@@ -16,9 +16,9 @@ const SearchBar = () => {
 
   return (
     <div className="flex justify-center">
-      <form onSubmit={(e) => onFormSubmit(e)}>
+      <form onSubmit={(event) => onFormSubmit(event)}>
         <Input onChange={(event) => onInputChange(event)} value={searchTerm} />
-        <Button />
+        <Button type="submit" />
       </form>
     </div>
   );
