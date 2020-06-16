@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import Button from "components/Button";
+import Input from "components/Input";
+
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -14,13 +17,8 @@ const SearchBar = () => {
   return (
     <div className="flex justify-center">
       <form onSubmit={(e) => onFormSubmit(e)}>
-        <input
-          className="border-2 border-gray-400 hover:border-teal-400 focus:border-teal-400 focus:outline-none px-3 py-2 font-medium rounded-lg"
-          placeholder="Search"
-          type="text"
-          value={searchTerm}
-          onChange={onInputChange}
-        />
+        <Input onChange={(event) => onInputChange(event)} value={searchTerm} />
+        <Button />
       </form>
     </div>
   );
