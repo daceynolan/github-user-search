@@ -16,12 +16,18 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div className="flex justify-center">
-      <form onSubmit={(event) => onFormSubmit(event)}>
-        <Input onChange={(event) => onInputChange(event)} value={searchTerm} />
-        <Button type="submit">Search</Button>
-      </form>
-    </div>
+    <form
+      className="w-full flex justify-center"
+      onSubmit={(event) => onFormSubmit(event)}
+    >
+      <Input
+        className="mr-8"
+        onChange={(event) => onInputChange(event)}
+        value={searchTerm}
+        placeholder="Search for GitHub user"
+      />
+      <Button type="submit">Search</Button>
+    </form>
   );
 };
 
