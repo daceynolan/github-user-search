@@ -5,7 +5,7 @@ import Avatar from "components/Avatar";
 const UserCard = ({ user }) => {
   return (
     <a
-      className="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer"
+      className="rounded overflow-hidden shadow-lg cursor-pointer"
       href={user.html_url}
     >
       <Avatar avatar={user.avatar_url} alt={user.login} />

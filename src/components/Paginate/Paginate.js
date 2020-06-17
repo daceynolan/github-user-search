@@ -14,7 +14,7 @@ const Paginate = ({ onPageChange, ...props }) => {
       onPageChange={onPageChange}
       pageClassName="rounded-lg hover:text-teal-400"
       pageLinkClassName="block rounded-lg py-1 w-8 text-center text-sm focus:outline-none focus:shadow-outline "
-      pageRangeDisplayed={5}
+      pageRangeDisplayed={3}
       previousClassName="rounded-lg"
       previousLabel={<i className="fas fa-angle-left" />}
       previousLinkClassName="block rounded-lg py-1 w-8 text-center hover:text-teal-500 text-sm focus:outline-none focus:shadow-outline"

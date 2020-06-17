@@ -6,7 +6,7 @@ import Paginate from "components/Paginate";
 import UserCard from "components/UserCard";
 import GithubLink from "components/GitHubLink";
 
-const PER_PAGE = 9;
+const PER_PAGE = 8;
 //Github's API only returns the first 1000 results
 const MAX_RESULTS = 1000;
 
@@ -47,17 +47,38 @@ const App = () => {
     <>
       <GithubLink />
       <Banner onFormSubmit={handleSearch} />
-      <div className="flex justify-center text-gray-600 font-semibold pt-6">
-        {users && <div>Results: {totalCount}</div>}
+      <div className="flex justify-around items-center pt-6">
+        {users && (
+          <div className="text-gray-600 font-semibold">
+            Results: {totalCount}
+          </div>
+        )}
+        {totalPages > 1 && (
+          <Paginate
+            // React-paginate is 0 indexed, so subtract 1
+            forcePage={page - 1}
+            pageCount={totalPages}
+            onPageChange={(selectedItem) => {
+              // increment page number since it is 0 indexed
+              const page = selectedItem.selected + 1;
+              setPage(page);
+            }}
+          />
+        )}
       </div>
       <CenteringLayout>
-        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {users?.map((user) => {
             return <UserCard key={user.id} user={user} />;
           })}
         </div>
       </CenteringLayout>
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-around items-center mb-8">
+        {users && (
+          <div className="text-gray-600 font-semibold">
+            Results: {totalCount}
+          </div>
+        )}
         {totalPages > 1 && (
           <Paginate
             // React-paginate is 0 indexed, so subtract 1
