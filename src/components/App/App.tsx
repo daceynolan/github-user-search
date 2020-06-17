@@ -5,12 +5,13 @@ import CenteringLayout from "components/CenteringLayout";
 import Paginate from "components/Paginate";
 import UserCard from "components/UserCard";
 import GithubLink from "components/GitHubLink";
+import { User } from "types";
 
 const PER_PAGE = 8;
 //Github's API only returns the first 1000 results
 const MAX_RESULTS = 1000;
 
-const App = () => {
+const App: React.FunctionComponent = () => {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
@@ -38,7 +39,7 @@ const App = () => {
     fetchUsers();
   }, [page, searchTerm, fetchUsers]);
 
-  const handleSearch = (term) => {
+  const handleSearch = (term: string) => {
     setSearchTerm(term);
     setPage(1);
   };
@@ -68,7 +69,7 @@ const App = () => {
       </div>
       <CenteringLayout>
         <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {users?.map((user) => {
+          {users?.map((user: User) => {
             return <UserCard key={user.id} user={user} />;
           })}
         </div>

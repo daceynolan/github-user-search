@@ -1,8 +1,12 @@
 import React from "react";
 
 import Avatar from "components/Avatar";
+import { User } from "types";
+type Props = {
+  user: User;
+};
 
-const UserCard = ({ user }) => {
+const UserCard: React.FunctionComponent<Props> = ({ user }) => {
   return (
     <a
       className="rounded overflow-hidden shadow-lg cursor-pointer"

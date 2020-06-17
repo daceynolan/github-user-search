@@ -1,7 +1,10 @@
 import cx from "classnames";
 import React from "react";
 
-const Input = ({ className, ...props }) => {
+type Props = React.HTMLAttributes<HTMLInputElement> &
+  React.HTMLProps<HTMLInputElement>;
+
+const Input: React.FunctionComponent<Props> = ({ className, ...props }) => {
   return (
     <input
       className={cx(

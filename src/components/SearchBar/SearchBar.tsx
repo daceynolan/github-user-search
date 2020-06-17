@@ -3,27 +3,33 @@ import React, { useState } from "react";
 import Button from "components/Button";
 import Input from "components/Input";
 
-const SearchBar = (props) => {
+type Props = {
+  onFormSubmit: (searchTerm: string) => void;
+};
+
+const SearchBar: React.FunctionComponent<Props> = ({ onFormSubmit }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const onInputChange = (event) => {
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
-  const onFormSubmit = (event) => {
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    props.onFormSubmit(searchTerm);
+    onFormSubmit(searchTerm);
   };
 
   return (
     <form
       className="grid grid-cols-1 sm:grid-cols-4 gap-4 w-full max-w-screen-sm"
-      onSubmit={(event) => onFormSubmit(event)}
+      onSubmit={(event) => handleFormSubmit(event)}
     >
       <div className="col-span-1 sm:col-span-3">
         <Input
           className="mr-8"
-          onChange={(event) => onInputChange(event)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            onInputChange(event)
+          }
           value={searchTerm}
           placeholder="Search for GitHub user"
         />

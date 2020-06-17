@@ -2,7 +2,7 @@ import React from "react";
 
 import "./gitHubLink.css";
 
-const GithubLink = () => (
+const GithubLink: React.FunctionComponent = () => (
   <a
     className="gh-link"
     href="https://github.com/daceynolan/github-user-search"

@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## ToDo
+
+1. Add loading state
+1. Place holder
+1. TypeScript
+1. Testing
+1. Readme
+
 ## Available Scripts
 
 In the project directory, you can run:

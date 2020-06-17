@@ -1,7 +1,27 @@
 import React from "react";
-import ReactPaginate from "react-paginate";
+import ReactPaginate, { ReactPaginateProps } from "react-paginate";
 
-const Paginate = ({ onPageChange, ...props }) => {
+type Props = Omit<
+  ReactPaginateProps,
+  | "activeClassName"
+  | "breakLabel"
+  | "containerClassName"
+  | "marginPagesDisplayed"
+  | "nextClassName"
+  | "nextLabel"
+  | "nextLinkClassName"
+  | "pageClassName"
+  | "pageLinkClassName"
+  | "pageRangeDisplayed"
+  | "previousClassName"
+  | "previousLabel"
+  | "previousLinkClassName"
+>;
+
+const Paginate: React.FunctionComponent<Props> = ({
+  onPageChange,
+  ...props
+}) => {
   return (
     <ReactPaginate
       activeClassName="hover:text-white text-white bg-teal-500"

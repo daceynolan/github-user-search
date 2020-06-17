@@ -1,6 +1,6 @@
 import React from "react";
 
-const CenteringLayout = (props) => {
+const CenteringLayout: React.FunctionComponent = (props) => {
   return (
     <div className="flex items-center justify-center items-center mt-4 mb-4">
       {props.children}
