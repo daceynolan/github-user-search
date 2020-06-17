@@ -4,6 +4,7 @@ import Banner from "components/Banner";
 import CenteringLayout from "components/CenteringLayout";
 import Paginate from "components/Paginate";
 import UserCard from "components/UserCard";
+import GithubLink from "components/GitHubLink";
 
 const PER_PAGE = 9;
 //Github's API only returns the first 1000 results
@@ -44,6 +45,7 @@ const App = () => {
 
   return (
     <>
+      <GithubLink />
       <Banner onFormSubmit={handleSearch} />
       <div className="flex justify-center text-gray-600 font-semibold pt-6">
         {users && <div>Results: {totalCount}</div>}
