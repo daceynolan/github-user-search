@@ -6,6 +6,8 @@ const UserCard = ({ user }) => {
   return (
     <a
       className="rounded overflow-hidden shadow-lg cursor-pointer"
+      target="_blank"
+      rel="noopener noreferrer"
       href={user.html_url}
     >
       <Avatar avatar={user.avatar_url} alt={user.login} />
