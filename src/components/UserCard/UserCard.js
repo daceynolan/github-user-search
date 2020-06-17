@@ -10,7 +10,7 @@ const UserCard = ({ user }) => {
     >
       <Avatar avatar={user.avatar_url} alt={user.login} />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{user.login}</div>
+        <div className="font-bold text-xl mb-2 text-gray-600">{user.login}</div>
       </div>
     </a>
   );
