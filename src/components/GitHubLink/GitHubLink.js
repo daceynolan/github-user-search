@@ -5,7 +5,7 @@ import "./gitHubLink.css";
 const GithubLink = () => (
   <a
     className="gh-link"
-    href="https://github.com/daceynolan/"
+    href="https://github.com/daceynolan/github-user-search"
     aria-label="View source on Github"
   >
     <svg
