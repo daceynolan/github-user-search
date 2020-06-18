@@ -10,7 +10,7 @@ This app re-implements a portion of GitHub's search by using the GitHub public A
 - Implement `useEffect` hooks to react to data changes
 - Create unit tests for components using `Jest` and `React Testing Library`
 - Implement pagination with `react-paginate`
-- Tailwind for utility styling and responsive layout
+- Utilize `Tailwind` for styling and responsive layout
 
 ### Screenshots
 
