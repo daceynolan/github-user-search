@@ -72,7 +72,8 @@ const App: React.FunctionComponent = () => {
       {hasErrors && (
         <CenteringLayout>
           <div className="py-16 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center">
-            There was a problem fetching you results. Please try again.
+            There was a problem fetching you results. You may have hit the rate
+            limit. Please try again later.
           </div>
         </CenteringLayout>
       )}
