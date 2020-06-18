@@ -27,6 +27,7 @@ This app re-implements a portion of GitHub's search by using the GitHub public A
 - Refactor to use `react-query` for fetching and updating asynchronous data
 - Refactor some tests to address this [article](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 - Authenticate requests to increase [rate limit](https://developer.github.com/v3/#rate-limiting) from 60 to 5000 per hour
+- Explore using GitHub GraphQL API to add additional information to the user card
 
 ## Setup Instructions
 
