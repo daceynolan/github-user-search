@@ -83,7 +83,7 @@ const App: React.FunctionComponent = () => {
           </div>
         </CenteringLayout>
       )}
-      {!!users?.length && (
+      {!!users?.length && !hasErrors && !isLoading && (
         <>
           <CenteringLayout>
             <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
