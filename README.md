@@ -2,7 +2,7 @@
 
 ### Purpose
 
-This app re-implements a portion of GitHub's search by using the GitHub public API. A user can enter a name of the user that are searching for and will receive a paginated list of results. The user can navigate easily through the results, and select their desired result. Once the result is selected, the user will be sent to the applicable GitHub user profile.
+This app re-implements a portion of GitHub's search by using the GitHub public API. You can enter a name of the user that you are searching for and will receive a paginated list of results. You can click on a result to jump to their GitHub profile.
 
 ### Development Focus
 
@@ -20,18 +20,15 @@ This app re-implements a portion of GitHub's search by using the GitHub public A
 
 </div>
 
-### Testing
-
-One of my main goals was to implement testing using `jest` and `react-testing-library`. To run tests use `yarn test --watchAll`. My next goal is to reach 100% code coverage.
-
 ### Future Improvements
 
 - Implement more testing to reach 100% test coverage
-- Research mocking API request
-- Refactor to use `react-query` for fetching and updating asynchronous data.
+  - Research mocking API request
+- Refactor to use `react-query` for fetching and updating asynchronous data
 
 ## Setup Instructions
 
-1. Clone this repository.
+1. Clone this repository
 2. Install dependencies with `yarn install`
 3. Start app with `yarn start`
+4. Run tests with `yarn test`
