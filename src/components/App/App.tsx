@@ -9,7 +9,7 @@ import UserCard from "components/UserCard";
 import { User } from "types";
 
 const PER_PAGE = 8;
-// Github's API only returns the first 1000 results
+//Github's API only returns the first 1000 results
 const MAX_RESULTS = 1000;
 
 const App: React.FunctionComponent = () => {
@@ -57,17 +57,30 @@ const App: React.FunctionComponent = () => {
     setPage(1);
   };
 
-  const renderBody = () => {
-    if (isLoading) {
-      return <Loader />;
-    }
-    if (hasErrors) {
-      return (
-        <div>There was a problem fetching you results. Please try again</div>
-      );
-    }
-    if (users?.length) {
-      return (
+  return (
+    <>
+      <GithubLink />
+      <Banner onFormSubmit={handleSearch} />
+      {isLoading && (
+        <CenteringLayout>
+          <Loader />
+        </CenteringLayout>
+      )}
+      {hasErrors && (
+        <CenteringLayout>
+          <div className="h-64 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center ">
+            There was a problem fetching you results. Please try again.
+          </div>
+        </CenteringLayout>
+      )}
+      {!isLoading && !hasErrors && !users?.length && (
+        <CenteringLayout>
+          <div className="h-64 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center">
+            Please enter in a name to begin your search.
+          </div>
+        </CenteringLayout>
+      )}
+      {!!users?.length && (
         <>
           <CenteringLayout>
             <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -77,7 +90,7 @@ const App: React.FunctionComponent = () => {
             </div>
           </CenteringLayout>
           <div className="flex justify-around items-center mb-8">
-            {users && (
+            {!!users.length && (
               <div className="text-gray-600 font-semibold">
                 Results: {totalCount}
               </div>
@@ -96,16 +109,7 @@ const App: React.FunctionComponent = () => {
             )}
           </div>
         </>
-      );
-    }
-    return <div>placeholder</div>;
-  };
-
-  return (
-    <>
-      <GithubLink />
-      <Banner onFormSubmit={handleSearch} />
-      {renderBody()}
+      )}
     </>
   );
 };
