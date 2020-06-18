@@ -77,10 +77,17 @@ const App: React.FunctionComponent = () => {
           </div>
         </CenteringLayout>
       )}
-      {!isLoading && !hasErrors && !users?.length && (
+      {!isLoading && !hasErrors && !users?.length && !searchTerm && (
         <CenteringLayout>
           <div className="py-16 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center">
             Please enter in a name to begin your search.
+          </div>
+        </CenteringLayout>
+      )}
+      {!isLoading && !hasErrors && !users?.length && searchTerm && (
+        <CenteringLayout>
+          <div className="py-16 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center">
+            No results found, please revise your search query
           </div>
         </CenteringLayout>
       )}
