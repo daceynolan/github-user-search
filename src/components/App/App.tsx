@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-import Banner from "components/Banner";
+import SearchBar from "components/SearchBar";
 import CenteringLayout from "components/CenteringLayout";
 import GithubLink from "components/GitHubLink";
 import Loader from "components/Loader";
 import Paginate from "components/Paginate";
 import UserCard from "components/UserCard";
+import octocat from "images/octocat.png";
 import { User } from "types";
 
 const PER_PAGE = 8;
@@ -36,7 +37,6 @@ const App: React.FunctionComponent = () => {
       setTotalCount(
         data.total_count <= MAX_RESULTS ? data.total_count : MAX_RESULTS
       );
-
       const maxPages = Math.floor(MAX_RESULTS / PER_PAGE);
       setTotalPages(pages > maxPages ? maxPages : pages);
     } catch {
@@ -60,7 +60,10 @@ const App: React.FunctionComponent = () => {
   return (
     <>
       <GithubLink />
-      <Banner onFormSubmit={handleSearch} />
+      <div className="flex flex-col items-center p-8 bg-gray-300 ">
+        <img className="w-32 mb-4" src={octocat} alt="GitHub logo" />
+        <SearchBar onFormSubmit={handleSearch} />
+      </div>
       {isLoading && (
         <CenteringLayout>
           <Loader />
@@ -68,14 +71,14 @@ const App: React.FunctionComponent = () => {
       )}
       {hasErrors && (
         <CenteringLayout>
-          <div className="h-64 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center ">
+          <div className="py-16 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center">
             There was a problem fetching you results. Please try again.
           </div>
         </CenteringLayout>
       )}
       {!isLoading && !hasErrors && !users?.length && (
         <CenteringLayout>
-          <div className="h-64 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center">
+          <div className="py-16 flex font-bold max-w-xs text-3xl mb-2 text-gray-400 text-center items-center">
             Please enter in a name to begin your search.
           </div>
         </CenteringLayout>

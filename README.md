@@ -25,6 +25,7 @@ This app re-implements a portion of GitHub's search by using the GitHub public A
 - Implement more testing to reach 100% test coverage
   - Research mocking API request
 - Refactor to use `react-query` for fetching and updating asynchronous data
+- Refactor some tests to address this [article](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 
 ## Setup Instructions
 

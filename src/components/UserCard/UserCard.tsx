@@ -2,6 +2,7 @@ import React from "react";
 
 import Avatar from "components/Avatar";
 import { User } from "types";
+
 type Props = {
   user: User;
 };
