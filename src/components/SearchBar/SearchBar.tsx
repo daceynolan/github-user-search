@@ -31,11 +31,14 @@ const SearchBar: React.FunctionComponent<Props> = ({ onFormSubmit }) => {
             onInputChange(event)
           }
           value={searchTerm}
+          data-testid="userInput"
           placeholder="Search for GitHub user"
         />
       </div>
       <div className="col-span-1">
-        <Button type="submit">Search</Button>
+        <Button type="submit" data-testid="submit">
+          Search
+        </Button>
       </div>
     </form>
   );
