@@ -2,7 +2,7 @@
 
 ### Purpose
 
-This app e-implements portion of GitHub's search feature by using the GitGub public API. This app will focus on the user search. A user can enter in the name of the user that are searching for and will receive a paginated list of results. The user can navigate easily through the results, and select their desired result. Once the result is selected, the user will be sent to the applicable GitHub user profile.
+This app re-implements a portion of GitHub's search by using the GitHub public API. A user can enter a name of the user that are searching for and will receive a paginated list of results. The user can navigate easily through the results, and select their desired result. Once the result is selected, the user will be sent to the applicable GitHub user profile.
 
 ### Development Focus
 
